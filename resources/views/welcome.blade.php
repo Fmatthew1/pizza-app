@@ -19,7 +19,7 @@
             <div class="content">
                 <img src="/img/pizza.jpg" alt="pizza House">
                 <div class="title m-b-md">
-                    The North Best Pizzas
+                    The South Best Pizzas
                 </div>
 
             </div>

@@ -15,15 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/pizzas', function () {
-//     $pizza = [
-//         'type' => 'Hawaiian', 
-//         'base' => 'Garlic Crust',
-//         'price' => 10
-//     ];
-//     return view('pizzas', $pizza);
-// });
-
 Route::get('/pizzas', function () {
     $pizzas = [
         ['type' => 'Hawaiian', 'base' => 'Cheesy Crust'],
@@ -31,5 +22,10 @@ Route::get('/pizzas', function () {
         ['type' => 'Veg Supreme', 'base' => 'Thin & Crispy']
         
     ];
-    return view('pizzas', ['pizzas'=> $pizzas]);
+
+    return view('pizzas', [
+    'pizzas'=> $pizzas,
+    'name' => request('name'),
+    'age' => request('age')
+    ]);
 });
