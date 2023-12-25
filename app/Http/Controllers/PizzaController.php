@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\pizza;
+use App\Pizza;
 
 class PizzaController extends Controller
 {
@@ -23,7 +23,7 @@ class PizzaController extends Controller
 
     public function show($id) {
 
-        $pizza = Pizza::findorfail($id);
+        $pizza = Pizza::findOrFail($id);
 
         return view('pizzas.show', ['pizza' => $pizza]);
     }
@@ -47,6 +47,13 @@ class PizzaController extends Controller
         $pizza->save();
 
        return redirect('/')->with('messg', 'Thanks for your order');
+    }
+
+    public function destroy($id) {
+        $pizza = Pizza::findOrFail($id);
+        $pizza->delete(); 
+
+        return redirect('/pizzas');
     }
    
 }
