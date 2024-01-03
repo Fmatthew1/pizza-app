@@ -27,6 +27,8 @@ Route::group(['namespace' => 'Product', 'prefix' => 'pizzas'], function(){
 Route::get('/pizzass', 'Product\PizzaController@index');
 
 Route::get('/services', 'ServiceController@index');
+Route::get('/services/create', 'ServiceController@create');
+Route::post('services/store', 'ServiceController@store');
 
 
 
