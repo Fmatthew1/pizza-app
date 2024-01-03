@@ -1,7 +1,6 @@
 @extends('Layouts.layout')
 
 @section('content')
-<div class="">
     <table class="wrapper">
             <thead>
                 @foreach($services as $service)
@@ -30,8 +29,4 @@
                 @endforeach
             </tbody>
     </table>
-</div>
-    
-
-
 @endsection
