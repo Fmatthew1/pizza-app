@@ -11,23 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/pizzas', function () {
-    
-});
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['namespace' => 'Product', 'prefix' => 'pizzas'], function(){
+    Route::get('', 'PizzaController@index');
+    Route::get('/create', 'PizzaController@create');
+    Route::post('', 'PizzaController@store');
+    Route::get('/{id}', 'PizzaController@show');
+    Route::delete('/{id}', 'PizzaController@destroy');
+});
 
-Route::get('/pizzas', 'PizzaController@index');
-Route::get('/pizzas/create', 'PizzaController@create');
-Route::post('/pizzas', 'pizzaController@store');
-Route::get('/pizzas/{id}', 'PizzaController@show');
-Route::delete('/pizzas/{id}', 'PizzaController@destroy');
+Route::get('/pizzass', 'Product\PizzaController@index');
+
+Route::get('/services', 'ServiceController@index');
+
 
 
     

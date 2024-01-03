@@ -94,7 +94,9 @@ footer {
       border: 0;
       margin-top: 20px;
     }
-  
+    fieldset{
+      border: 0;
+    }
   }
   
   /* pizza details page */
@@ -127,14 +129,14 @@ footer {
   
   .pizza-index{
     h1{
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
     .pizza-item{
       margin: 10px 0;
-      padding: 12px;
+      padding: 8px;
       background: #f4f4f4;
       img{
-        width: 60px;
+        width: 20px;
         display: inline-block;
       }
       h4{
