@@ -35,4 +35,10 @@ class ServiceController extends Controller
 
         return redirect('/services')->with('messg', 'Data was Successfully saved');
     }
+
+    public function edit($id)
+    {
+        $service = Service::findOrFail($id);
+        return view('services.edit', ['service' => $service]);
+    }
 }
