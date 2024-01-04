@@ -29,6 +29,7 @@ Route::get('/pizzass', 'Product\PizzaController@index');
 Route::get('/services', 'ServiceController@index');
 Route::get('/services/create', 'ServiceController@create');
 Route::post('services/store', 'ServiceController@store');
+Route::get('/services/{id}/edit', 'ServiceController@edit');
 
 
 
