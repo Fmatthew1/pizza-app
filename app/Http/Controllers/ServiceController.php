@@ -24,6 +24,13 @@ class ServiceController extends Controller
         return view('services.create');
     }
 
+    public function show($id) {
+
+        $service = Service::findOrFail($id);
+
+        return view('services.show', ['service' => $service]);
+    }
+
     public function store(Request $request) 
 
     {
@@ -40,5 +47,18 @@ class ServiceController extends Controller
     {
         $service = Service::findOrFail($id);
         return view('services.edit', ['service' => $service]);
+    }
+
+    public function update($id)
+    {
+        $service = Service::findOrFail($id);
+        return redirect('/services')->with('Success', 'Data has been successfully updated');
+    }
+
+    public function destroy($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+        return redirect('/services')->with('Success', 'Data was successfully deleted');
     }
 }
