@@ -1,4 +1,4 @@
-    @extends('Layouts.layout')
+    @extends('Layouts.app')
 
     @section('content')
         <h1>Pizza Orders</h1>
