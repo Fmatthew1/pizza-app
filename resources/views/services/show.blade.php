@@ -1,15 +1,15 @@
-@extends('Layouts.layout')
+@extends('Layouts.app')
 
 @section('content')
 
    <div class="wrapper-pizza-detals">
-        <h1>Service Description</h1>
+        <h1>Description of Services</h1>
         <p>{{ $service->description }}</p>
    </div>
-   <form action="/services/{{ $service->id }}" method="POST">
+   <form action="{{ route('services.destroy', $service->id) }}" method="POST">
     @csrf 
     @method('DELETE')
-    <button type="submit" value="submit">Remove A Service</button>
+    <button type="submit" value="submit">Delete A Service</button>
    </form>
    <a href="/services" class="back">Back To All Services</a>
 
