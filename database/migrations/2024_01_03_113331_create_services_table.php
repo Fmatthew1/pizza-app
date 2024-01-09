@@ -15,7 +15,7 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('description', 50)->unique();
+            $table->string('description', 100)->unique();
             $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
