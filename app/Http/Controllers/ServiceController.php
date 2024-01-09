@@ -35,6 +35,10 @@ class ServiceController extends Controller
     public function store(Request $request) 
 
     {
+        $request->validate([
+            'description' => 'required|unique:services|max:100',
+        ]);
+
         $service = new Service();
 
         $service->description = request('description');
