@@ -48,8 +48,12 @@ class ServiceController extends Controller
         return redirect('/services')->with('messg', 'Data was Successfully saved');
     }
 
-    public function update($id)
-    {
+    public function update(Request $request, $id)
+    {  
+        $Data = $request->validate([
+            'description' => ['required', 'unique:services', 'max:100'],
+        ]); 
+
         $service = Service::findOrFail($id);
 
         $Data = request();
