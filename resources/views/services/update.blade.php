@@ -11,7 +11,8 @@
                 <label for="description">Update Services</label>
             </div>
             
-                <input type="text" id="description" name="description" value="{{ $service->description }}">
+                <input type="text" id="description" name="description" value="{{ old('description') ?? $service->description }}">
+                {{-- <input type="text" class="form-control" id="label" name="label" placeholder="Label"> --}}
         
             <button type="submit" class="btn btn-success">Update</button>
             <div >
@@ -20,11 +21,11 @@
             </form>
             @if ($errors->any())
             <div class="alert alert-danger">
-                
+                    <ul>
                     @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
+                        <li>{{ $error }}</li>
                     @endforeach
-            
+                    </ul>
             </div>
             @endif
         </form>

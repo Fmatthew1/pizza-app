@@ -6,6 +6,8 @@ use App\Http\Controllers\Controllers;
 use Illuminate\Http\Request;
 use App\Pizza;
 use App\Service;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ServiceController extends Controller
 {
@@ -35,9 +37,11 @@ class ServiceController extends Controller
     public function store(Request $request) 
 
     {
+        
         $request->validate([
-            'description' => 'required|unique:services|max:100',
-        ]);
+           'description' => 'required|unique:services|max:100',
+        
+     ]);
 
         $service = new Service();
 
@@ -50,14 +54,22 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {  
-        $Data = $request->validate([
-            'description' => ['required', 'unique:services', 'max:100'],
-        ]); 
+        $service = Service::find($id);
+        $validator = Validator::make($request->all(), [ 
+            'description' => ['required', Rule::unique('services')->ignore($service)]
+       ]); 
+       if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+       }
+       // $data = $request->validate([
+         //   'description' => "required|max:100|unique:services",
+        // ]); 
 
         $service = Service::findOrFail($id);
 
-        $Data = request();
-        $service->description = $Data['description'];
+        $data = request();
+        $service->id = $data['id'];
+        $service->description = $data['description'];
         $service->save();
         return redirect('services');
     }
