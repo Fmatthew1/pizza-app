@@ -1,9 +1,9 @@
 @extends('Layouts.app')
 
 @section('content')
-    <h1>List of Services</h1>
+    <h1>List of Roles</h1>
     <button type="button" class="btn btn-outline-success">
-        <a href="/services/create">Create</a>
+        <a href="/roles/create">Create New Role</a>
     </button>
     <table class="table">
         <thead>
@@ -14,18 +14,18 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($services as $service)
+            @foreach($roles as $role)
                 <tr>
                     <th scope="row">{{ $loop->index + 1 }}</th>
                     <td>
-                        {{ $service->description }}
+                        {{ $role->name }}
                     </td>
                     <td>
                         <button type="button" class="btn btn-info">
-                            <a href="/services/{{ $service->id }}">View</a>
+                            <a href="/roles/{{ $role->id }}">View</a>
                         </button>
                         <button type="button" class="btn btn-warning">
-                            <a href="/services/{{ $service->id}}/edit">Update</a>
+                            <a href="/roles/{{ $role->id}}/edit">Update</a>
                         </button>
                     </td>
                 </tr>
