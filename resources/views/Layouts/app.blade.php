@@ -34,7 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
+                        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Roles</a></li>
+                        <li><a class="nav-link" href="{{ route('permissions.index') }}">Manage Permissions</a></li>
+                        <li><a class="nav-link" href="{{ route('products.index') }}">Manage Products</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

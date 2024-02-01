@@ -28,7 +28,7 @@
 
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="role_permission">Add Permissions</label>
-                                <input type="text" id="role_permission" class="form-control" name="rolr_permission" value={{old( 'role_permission' )}}>
+                                <input type="text" id="role_permission" class="form-control" name="role_permission" value={{old( 'role_permission' )}}>
                             </div>
 
                             <div class="form-group row mb-0">

@@ -11,7 +11,7 @@
                 </ul>
             </div>
         @endif
-    <form action="/users" method="POST">
+    <form action="{{ route('users.store') }}" method="POST">
     @csrf
         <div class="mb-2">
         <label for="name" class="form-label">New User</label>

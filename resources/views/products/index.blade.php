@@ -4,7 +4,7 @@
 
 <h2>Product Management</h2>
 <button type="button" class="btn btn-outline-success">
-    <a href="/users/create">Create Products</a>
+    <a href="/products">Create Products</a>
 </button>
 <table class="table">
     <thead>
