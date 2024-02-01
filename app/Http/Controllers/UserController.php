@@ -45,10 +45,10 @@ class UserController extends Controller
    public function store(Request $request)
    {
       $request->validate([
-         'name' => 'required|unique:users|max:100',
-         'email' => 'required|unique:users|email|max:100',
-         'password'=> 'required|between:8,50|confirmed',
-         'password_confirmation'=> 'required'
+         'name' => 'required|unique:users|max:255',
+         'email' => 'required|unique:users|email|max:255',
+         'password' => 'required|between:8,255|confirmed',
+         'password_confirmation'=> 'required',
      ]);
 
       $user = new User();
@@ -63,15 +63,16 @@ class UserController extends Controller
    public function update(Request $request, $id)
     {
       $request->validate([
-         'name' => 'required|unique:users|max:100',
-         'email' => 'required|unique:users|email|max:100',
-         'password'=> 'required|between:8,50|confirmed',
+         'name' => 'required|unique:users|max:255',
+         'email' => 'required|unique:users|email|max:255',
+         'password'=> 'required|between:8,255|',
      ]);
 
         $user = User::findOrFail($id);
-        $Data = request();
-        $user->name = $Data['name'];
-        $user->email = $Data['email'];
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role_id = $request->role_id;
         $user->save();
 
         return redirect('users')->with('Success', 'Users Successfully Updated');
