@@ -50,11 +50,13 @@ Route::put('/roles/{id}', 'RoleController@update')->name('roles.update');
 
 
 Route::get('/permissions', 'PermissionController@index')->name('permissions.index');
+Route::get('/permissions/create', 'PermissionController@create')->name('permissions.create');
+Route::get('permissions{id}/edit', 'PermissionController@edit')->name('permissions.edit');
 Route::get('/permissions{id}', 'PermissionController@show')->name('permissions.show');
 Route::post('/permissions', 'PermissionController@store')->name('permissions.store');
 
 Route::get('/products', 'ProductController@index')->name('products.index');
-Route::get('/products', 'ProductController@create')->name('products.create');
+Route::get('/products/create', 'ProductController@create')->name('products.create');
 Route::get('/products{id}', 'ProductController@show')->name('products.show');
 Route::get('/products{id}/edit', 'ProductController@edit')->name('products.edit');
 Route::post('/products', 'ProductController@store')->name('products.store');
