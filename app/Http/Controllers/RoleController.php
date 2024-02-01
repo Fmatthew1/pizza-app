@@ -50,7 +50,7 @@ class RoleController extends Controller
 
     public function edit($id)
     {
-        return view('roles.edit');
+        return view('roles.update');
     }
 
     public function update(Request $request, Role $role)
