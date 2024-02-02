@@ -50,7 +50,7 @@ class RoleController extends Controller
         //     $role->permissions()->attach($request->input('permissions'));
         // }
 
-        // return redirect()->route('roles.index');
+    
     }
 
     public function edit($id)
@@ -74,7 +74,7 @@ class RoleController extends Controller
         
         $role = Role::findOrFail($id);
         $role->name = $request->name;
-        $role->permission_id = $request->permission_id;
+        //$role->permission_id = $request->permission_id;
         $role->save();
         return redirect('roles');
     
