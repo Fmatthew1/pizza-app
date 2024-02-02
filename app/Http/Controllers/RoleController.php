@@ -31,14 +31,19 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
+       
         $request->validate([
             'name'=> 'required|max:255',
         ]); 
-
+        
         $role = new Role();
         $role->name = $request->name;
         $role->save();
-        return redirect()->route('/roles')->with('success','Role successfully created');
+
+        return redirect('roles')->with('success','Role successfully created');
+
+        
+        
     
 
         // if ($request->has('permissions')) {
@@ -50,17 +55,28 @@ class RoleController extends Controller
 
     public function edit($id)
     {
-        return view('roles.update');
+        $role = Role::findOrFail($id);
+        $permissions = Permission::all();
+        return view('roles.update', ['role' => $role,'permissions'=> $permissions]);
     }
 
-    public function update(Request $request, Role $role)
+    public function show($id)
+    {
+        $role = Role::findOrFail($id);
+        return view('roles.show', ['role'=> $role]);
+    }
+
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name'=> 'name',
-            ]);
-            $role->name = $request->name;
-            $role->save();
-            return redirect()->route('/roles');
+        ]);
+        
+        $role = Role::findOrFail($id);
+        $role->name = $request->name;
+        $role->permission_id = $request->permission_id;
+        $role->save();
+        return redirect('roles');
     
     }
 
