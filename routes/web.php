@@ -43,7 +43,7 @@ Route::put('/users/{id}', 'UserController@update')->name('users.update');
 
 Route::get('/roles', 'RoleController@index')->name('roles.index');
 Route::get('/roles/create', 'RoleController@create')->name('roles.create');
-Route::get('roles{id}/edit', 'RoleController@edit')->name('roles.edit');
+Route::get('roles/{id}/edit', 'RoleController@edit')->name('roles.edit');
 Route::get('/roles/{id}', 'RoleController@show')->name('roles.show');
 Route::post('/roles', 'RoleController@store')->name('roles.store');
 Route::put('/roles/{id}', 'RoleController@update')->name('roles.update');
