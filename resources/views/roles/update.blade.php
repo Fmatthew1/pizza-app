@@ -17,7 +17,7 @@
                     <div class="card-header">Update New Role</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('roles.update', $role->id) }}">
+                        <form method="POST" action="/roles/{{ $role->id }}">
                         @csrf
                         @method('PUT')
                             <div class="form-group row">
