@@ -3,11 +3,15 @@
 @section('content')
     <div class="container">
         <h2>Role Update Management</h2>
-        @error('name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <div class="float-end">
             <a href="{{ route('roles.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
         </div>
