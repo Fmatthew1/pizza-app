@@ -33,7 +33,7 @@ class RoleController extends Controller
     {
        
         $request->validate([
-            'name'=> 'required|max:255',
+            'name'=> 'required|unique:roles|max:255',
         ]); 
         
         $role = new Role();
@@ -69,7 +69,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'=> 'name',
+            'name'=> 'required|unique:roles|max:255',
         ]);
         
         $role = Role::findOrFail($id);
