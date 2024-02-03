@@ -3,7 +3,7 @@
 @section('content')
     <h1>List of Permissions</h1>
     <button type="button" class="btn btn-outline-success">
-        <a href="/roles/create">Create New Permission</a>
+        <a href="/permissions/create">Create New Permission</a>
     </button>
     <table class="table">
         <thead>
@@ -26,10 +26,10 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-info">
-                            <a href="/roles/{{ $role->id }}">View</a>
+                            <a href="/permissions/{{ $permission->id }}">View</a>
                         </button>
                         <button type="button" class="btn btn-warning">
-                            <a href="/roles/{{ $role->id}}/edit">Update</a>
+                            <a href="/permissions/{{ $permission->id}}/edit">Update</a>
                         </button>
                     </td>
                 </tr>
