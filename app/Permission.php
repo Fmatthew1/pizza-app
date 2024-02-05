@@ -19,7 +19,7 @@ class Permission extends Model
     }
     public function hasPermission($permission)
     {
-        return $this->role->permissions()->where('name', $permission)->exists();
+        return $this->role->permissions()->where('name', 'description', $permission)->exists();
     }
 
 
