@@ -13,8 +13,8 @@
                         <form method="POST" action="/permissions">
                         @csrf
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="role_permission">Add Permissions</label>
-                                <input type="text" id="role_permission" class="form-control" name="role_permission" value={{old( 'role_permission' )}}>
+                                <label class="col-md-4 col-form-label text-md-right" for="name">Add Permissions</label>
+                                <input type="text" id="name" class="form-control" name="name" value={{old( 'name' )}}>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="description">Description</label>

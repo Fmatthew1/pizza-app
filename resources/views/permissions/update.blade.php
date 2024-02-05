@@ -13,7 +13,7 @@
         </div>
     @endif
         <div class="float-end">
-            <a href="{{ route('roles.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+            <a href="{{ route('permissions.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -31,7 +31,7 @@
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $permission->name}}">
                                 </div>
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $permission->description}}">
+                                    <input id="decription" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $permission->description}}">
                                 </div>
 
                             </div>
