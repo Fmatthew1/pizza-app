@@ -32,7 +32,7 @@ class PermissionController extends Controller
     {
        
         $request->validate([
-            'name'=> 'required|unique:permission|max:255',
+            'name'=> 'required|unique:permissions|max:255',
             'description'=> 'required',
         ]); 
         
@@ -47,8 +47,8 @@ class PermissionController extends Controller
     public function edit($id)
     {
         $permission = Permission::findOrFail($id);
-        $permissions = Permission::all();
-        return view('permissions.update', ['permission' => $permission]);
+        $roles = Role::all();
+        return view('permissions.update', ['permission' => $permission, 'roles' => $roles]);
     }
 
     public function show($id)
@@ -59,13 +59,16 @@ class PermissionController extends Controller
 
     public function update(Request $request, $id)
     {
+        
         $request->validate([
             'name'=> 'required|unique:roles|max:255',
             'description'=> 'required',
         ]);
+        dd($request->name);
         
         $permission = Permission::findOrFail($id);
         $permission->name = $request->name;
+        $permission->description = $request->description;
         $permission->save();
         return redirect('permissions');
     
