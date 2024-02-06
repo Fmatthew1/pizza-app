@@ -4,14 +4,14 @@
     <div class="container">
         <h2>Edit Permissions</h2>
         @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="float-end">
             <a href="{{ route('permissions.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
         </div>
