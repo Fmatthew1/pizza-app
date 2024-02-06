@@ -51,7 +51,7 @@ Route::put('/roles/{id}', 'RoleController@update')->name('roles.update');
 
 Route::get('/permissions', 'PermissionController@index')->name('permissions.index');
 Route::get('/permissions/create', 'PermissionController@create')->name('permissions.create');
-Route::get('permissions{id}/edit', 'PermissionController@edit')->name('permissions.edit');
+Route::get('permissions/{id}/edit', 'PermissionController@edit')->name('permissions.edit');
 Route::get('/permissions/{id}', 'PermissionController@show')->name('permissions.show');
 Route::post('/permissions', 'PermissionController@store')->name('permissions.store');
 Route::put('/permissions/{id}', 'PermissionController@update')->name('permissions.update');
