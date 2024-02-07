@@ -4,7 +4,7 @@
 
 <h2>Product Management</h2>
 <button type="button" class="btn btn-outline-success">
-    <a href="/products">Create Products</a>
+    <a href="/products/create">Create Products</a>
 </button>
 <table class="table">
     <thead>
@@ -31,10 +31,10 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-info">
-                        <a href="/products/{{ $user->id }}">View</a>
+                        <a href="/products/{{ $product->id }}">View</a>
                     </button>
                     <button type="button" class="btn btn-warning">
-                        <a href="/products/{{ $user->id}}/edit">Update</a>
+                        <a href="/products/{{ $product->id}}/edit">Update</a>
                     </button>
                 </td>
             </tr>
