@@ -20,14 +20,20 @@
                     <div class="card-body">
                         <form method="POST" action="/permissions">
                         @csrf
+                        
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="name">Add Permissions</label>
+
+                                <div class="col-md-6">
                                 <input type="text" id="name" class="form-control" name="name" value={{old( 'name' )}}>
-                            </div>
-                            <div class="form-group row">
+                                </div>
                                 <label class="col-md-4 col-form-label text-md-right" for="description">Description</label>
+                                <div class="col-md-6">
                                 <input type="text" id="description" class="form-control" name="description" value={{old( 'description' )}}>
+                                </div>
                             </div>
+                        
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
