@@ -39,15 +39,6 @@ class RoleController extends Controller
         $role->permissions()->sync($request->permissions);
 
         return redirect('roles')->with('success','Role successfully created');
-
-        
-        
-    
-
-        // if ($request->has('permissions')) {
-        //     $role->permissions()->attach($request->input('permissions'));
-        // }
-
     
     }
 
@@ -68,7 +59,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'=> 'required|max:255',
+            'name'=> 'required|unique:roles|max:255',
         ]);
         
         $role = Role::findOrFail($id);
