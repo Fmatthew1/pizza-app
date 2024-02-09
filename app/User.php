@@ -27,11 +27,6 @@ class User extends Authenticatable
         return $this->permissions->contains('name', $permission);
     }
 
-    public function getRoleNames()
-    {
-        return $this->belongsToMany('App\Role');
-    }
-
     /**
      * The attributes that are mass assignable.
      *
