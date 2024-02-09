@@ -25,7 +25,7 @@
                         @csrf
                         @method('PUT')
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Role Name</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->name}}">
@@ -34,17 +34,18 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="role_permission">Permissions</label>
+                                <label class="col-md-4 col-form-label text-md-right" for="role_permission">Add Permissions</label>
                                 <div class="col-md-6">           
-                                    <select class="form-select @error('permissions') is-invalid @enderror" multiple aria-label="Permissions" id="permissions" name="permissions[]" style="height: 210px;">
-                                        @forelse ($permissions as $permission)
-                                            <option value="{{ $permission->id }}" {{ in_array($permission->id, $rolePermissions ?? []) ? 'selected' : '' }}>
-                                                {{ $permission->name }}
-                                            </option>
-                                        @empty
-        
-                                        @endforelse
-                                    </select>
+                                    @forelse ($permissions as $permission)
+                                    <div class="form-check">
+                                        <input type="checkbox" value="{{ $permission->id }}" class="form-check-input" id="permissions_{{ $permission->id }}" name="permissions[]" {{in_array($permission->id, $role->permissions->pluck('id')->toArray()) ? 'checked' : ''}}>
+                                        <label class="form-check-label">
+                                            {{ $permission->name }}
+                                        </label>
+                                    </div>
+                                    @empty
+                                            No permissions
+                                    @endforelse
                                     @if ($errors->has('permissions'))
                                         <span class="text-danger">{{ $errors->first('permissions') }}</span>
                                     @endif

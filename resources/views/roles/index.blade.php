@@ -10,6 +10,7 @@
             <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
+            <th scope="col">Permission</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -19,6 +20,11 @@
                     <th scope="row">{{ $loop->index + 1 }}</th>
                     <td>
                         {{ $role->name }}
+                    </td>
+                    <td>
+                        @foreach($role->permissions as $permission)
+                        {{ $permission->name }}
+                        @endforeach
                     </td>
                     <td>
                         <button type="button" class="btn btn-info">

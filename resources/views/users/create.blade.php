@@ -29,6 +29,14 @@
         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password">
         </div>
         <div class="d-grid gap-2">
+
+            <h3>Select role</h3>
+            <select id='role_id' name="role_id" required>
+                @foreach($roles as $role)
+                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                @endforeach
+            </select>
+
         <button class="btn btn-primary" type="submit" value="submit">Submit</button>
         </div>
     </form>

@@ -27,11 +27,7 @@
                     {{ $user->email }}
                 </td>
                 <td>
-                    @if(!empty($user->getRoleNames()))
-                    @foreach($user->getRoleNames() as $v)
-                    <label> {{ $v }} </label>
-                    @endforeach
-                    @endif
+                    <label> {{ $user->role->name }} </label>
                 </td>
                 <td>
                     <button type="button" class="btn btn-info">
