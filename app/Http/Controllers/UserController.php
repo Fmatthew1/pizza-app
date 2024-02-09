@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Role;
 use App\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -11,8 +12,9 @@ class UserController extends Controller
    public function index()
    {
       $users = User::all();
+      $roles = Role::all();
 
-      return view('users.index', ['users'=> $users]);
+      return view('users.index', ['users' => $users, 'roles' => $roles]);
       
    }
 
@@ -23,7 +25,7 @@ class UserController extends Controller
       $users->email = request('email');
       $users->password = request('password');
       $users->role_id = request('role_id');
-      $roles = new Role();
+      $roles = Role::all();
       
       return view('users.create', ['users' => $users, 'roles'=> $roles]);
    }
@@ -62,10 +64,26 @@ class UserController extends Controller
 
    public function update(Request $request, $id)
     {
+      $userId = User::find($id);
       $request->validate([
-         'name' => 'required|unique:users|max:255',
-         'email' => 'required|unique:users|email|max:255',
-         'password'=> 'required|between:8,255|',
+         'name' => [
+            'required',
+            Rule::unique('users')->ignore($userId),
+            'max:255',
+         ],
+         'email' => [
+            'required',
+            Rule::unique('users')->ignore($userId),
+            'max:255'
+         ],
+         'password' => [
+            'required',
+            Rule::unique('users')->ignore($userId),
+            'max:255'
+         ],
+         'role_id' => [
+            'required'
+         ]
      ]);
 
         $user = User::findOrFail($id);
