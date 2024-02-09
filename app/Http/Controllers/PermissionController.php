@@ -71,10 +71,8 @@ class PermissionController extends Controller
                 'required',
                 Rule::unique('permissions')->ignore($permissionId),
                 'max:255'
-            ],
-            'role_id' => [
-                'required'
-             ]
+            ]
+           
         ]);
       
         
