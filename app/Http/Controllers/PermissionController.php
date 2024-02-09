@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Permission;
 use App\Role;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 
@@ -59,10 +60,21 @@ class PermissionController extends Controller
 
     public function update(Request $request, $id)
     {
-      
+        $permissionId = Permission::find($id);
         $request->validate([
-            'name'=> 'required|unique:permissions|max:255',
-            'description'=> 'required',
+            'name'=> [
+                'required',
+                Rule::unique('permissions')->ignore($permissionId),
+                'max:255'
+            ],
+            'description'=> [
+                'required',
+                Rule::unique('permissions')->ignore($permissionId),
+                'max:255'
+            ],
+            'role_id' => [
+                'required'
+             ]
         ]);
       
         
