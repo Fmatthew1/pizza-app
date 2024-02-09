@@ -33,7 +33,7 @@ class PermissionController extends Controller
        
         $request->validate([
             'name'=> 'required|unique:permissions|max:255',
-            'description'=> 'required|unique:permissions',
+            'description'=> 'required',
         ]); 
         
         $permission = new Permission();
@@ -61,8 +61,8 @@ class PermissionController extends Controller
     {
       
         $request->validate([
-            'name'=> 'required|unique:permissions|max:255',
-            'description'=> 'required|unique:permissions',
+            'name'=> 'required|max:255',
+            'description'=> 'required',
         ]);
       
         
