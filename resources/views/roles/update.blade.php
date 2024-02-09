@@ -33,25 +33,21 @@
 
                             </div>
 
-                            <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="role_permission">Add Permissions</label>
-                                <div class="col-md-6">           
-                                    @forelse ($permissions as $permission)
+                             
+                                    @foreach ($permissions as $permission)
+                                    <div class="form-group row">
                                     <div class="form-check">
                                         <input type="checkbox" value="{{ $permission->id }}" class="form-check-input" id="permissions_{{ $permission->id }}" name="permissions[]" {{in_array($permission->id, $role->permissions->pluck('id')->toArray()) ? 'checked' : ''}}>
                                         <label class="form-check-label">
                                             {{ $permission->name }}
                                         </label>
                                     </div>
-                                    @empty
-                                            No permissions
-                                    @endforelse
+                                    </div>
+                                    @endforeach
                                     @if ($errors->has('permissions'))
                                         <span class="text-danger">{{ $errors->first('permissions') }}</span>
                                     @endif
-                                </div>
-        
-                            </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
