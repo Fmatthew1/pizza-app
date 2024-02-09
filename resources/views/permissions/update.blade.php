@@ -36,17 +36,7 @@
                                 </div>
 
                             </div>
-                            <label for="roles" class="col-md-4 col-form-label text-md-end text-start">Roles</label>
-                            <div class="mb-3 row">
-                                <div class="col-md-6">           
-                                    @forelse ($roles as $role)
-                                    <input type="radio" value={{ $role->id }} name="role_id" id="role_{{ $role->id }}" />
-                                    <label for="role_{{ $role->id }}">{{ $role->name}}</label>
-
-                                    @empty
-                                    @endforelse
-                                </div>
-                            </div>
+                         
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
