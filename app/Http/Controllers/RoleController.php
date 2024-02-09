@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\Permission;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -58,8 +59,13 @@ class RoleController extends Controller
 
     public function update(Request $request, $id)
     {
+        $roleId = Role::find($id);
         $request->validate([
-            'name'=> 'required|unique:roles|max:255',
+            'name'=> [
+                'required',
+                Rule::unique('roles')->ignore($roleId),
+                'max:255'
+            ]
         ]);
         
         $role = Role::findOrFail($id);

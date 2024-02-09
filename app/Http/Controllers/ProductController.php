@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Product;
 use App\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -58,10 +59,23 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-      $request->validate([
-         'name' => 'required|unique:products|max:255',
-         'price' => 'required',
-         'description'=> 'required',
+        $productId = Product::find($id);
+        $request->validate([
+            'name' => [
+                'required',
+                Rule::unique('products')->ignore($productId),
+                'max:255',
+            ],
+            'price' => [
+                'required',
+                Rule::unique('products')->ignore($productId),
+                'max:255'
+            ],
+            'description' => [
+                'required',
+                Rule::unique('products')->ignore($productId),
+                'max:255'
+            ]
      ]);
 
         $product = Product::findOrFail($id);
