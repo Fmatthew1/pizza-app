@@ -33,13 +33,13 @@
 
                             </div>
 
-                                <label class="col-md-4 col-form-label text-md-right" for="role_permission">Add Permissions</label>
+                                <label class="col-md-4 col-form-label text-md-right" for="permission_role">Add Permissions</label>
                              
                                     @foreach ($permissions as $permission)
                                     <div class="form-group row">
                                     <div class="form-check">
-                                        <input type="checkbox" value="{{ $permission->id }}" class="form-check-input" id="permissions_{{ $permission->id }}" name="permissions[]" {{in_array($permission->id, $role->permissions->pluck('id')->toArray()) ? 'checked' : ''}}>
-                                        <label class="form-check-label">
+                                        <input type="checkbox" value="{{ $permission->id }}" class="form-check-input" id="permission_{{ $permission->id }}" name="permissions[]">
+                                        <label class="form-check-label" for="permission_{{ $permission->id }}">
                                             {{ $permission->name }}
                                         </label>
                                     </div>
