@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+//    public function __construct(){
+//       $this->middleware('auth');
+//   }
    public function index()
    {
       $users = User::all();
@@ -41,6 +44,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::all();
+        //$assignedRoleId = $user->role_id;
         return view('users.update', ['user' => $user, 'roles' => $roles]);
     }
 
