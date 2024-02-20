@@ -50,12 +50,18 @@
                     <label for="roles" class="col-md-4 col-form-label text-md-end text-start">Roles</label>
                     <div class="mb-3 row">
                         <div class="col-md-6">           
-                        @forelse ($roles as $role)
-                            <input type="radio" value={{ $role->id }} name="role_id" id="role_{{ $role->id }}" />
-                            <label for="role_{{ $role->id }}">{{ $role->name}}</label>
-
-                            @empty
-                            @endforelse
+                            <label for="role">Select Role:</label>
+                            @foreach ($roles as $role)
+                            
+                           <label for="role_{{ $role->id }}">
+                            <input type="radio" value={{ $role->id }} id="role_{{ $role->id }}" {{ $role->id === $user->role_id ? 'checked' : ''}}>
+                            
+                           {{ $role->name}}
+                           </label>
+                            @endforeach 
+                            @if ($errors->has('roles'))
+                                        <span class="text-danger">{{ $errors->first('roles') }}</span>
+                            @endif
                         </div>
                     </div>
                     
