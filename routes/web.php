@@ -70,7 +70,7 @@ Route::put('/products/{id}', 'ProductController@update')->name('products.update'
 
     
 Auth::routes([
-    'register' => true
+    'register' => false
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
