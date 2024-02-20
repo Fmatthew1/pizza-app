@@ -54,7 +54,7 @@
                             @foreach ($roles as $role)
                             
                            <label for="role_{{ $role->id }}">
-                            <input type="radio" value={{ $role->id }} id="role_{{ $role->id }}" {{ $role->id === $user->role_id ? 'checked' : ''}}>
+                            <input type="radio" value={{ $role->id }} id="role_{{ $role->id }}" {{ $role->id === $user->role_id ? 'checked' : ''}} name="role_id">
                             
                            {{ $role->name}}
                            </label>
