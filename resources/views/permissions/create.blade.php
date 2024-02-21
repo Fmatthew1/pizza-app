@@ -25,11 +25,11 @@
                                 <label class="col-md-4 col-form-label text-md-right" for="name">Add Permissions</label>
 
                                 <div class="col-md-6">
-                                <input type="text" id="name" class="form-control" name="name" value={{old( 'name' )}}>
+                                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value={{ 'name' }}>
                                 </div>
                                 <label class="col-md-4 col-form-label text-md-right" for="description">Description</label>
                                 <div class="col-md-6">
-                                <input type="text" id="description" class="form-control" name="description" value={{old( 'description' )}}>
+                                <input type="text" id="description" class="form-control @error('description') is-invalid @enderror" name="description" value={{'description' }}>
                                 </div>
                             </div>
                         
