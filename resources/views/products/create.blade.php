@@ -25,15 +25,15 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Product Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ 'name' }}">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
                                 </div>
                                 <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
                                 <div class="col-md-6">
-                                    <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ 'price' }}">
+                                    <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}">
                                 </div>
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Description</label>
                                 <div class="col-md-6">
-                                    <input id="decription" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ 'description' }}">
+                                    <input id="decription" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}">
                                 </div>
 
                             </div>

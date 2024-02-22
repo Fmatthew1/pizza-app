@@ -21,25 +21,30 @@
                         <form method="POST" action="/permissions">
                         @csrf
                         
-                            <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="name">Add Permissions</label>
-
-                                <div class="col-md-6">
-                                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value={{ 'name' }}>
+                            <div class="d-flex flex-column justify-content-center">
+                                
+                                <div class="col-md-6 g-3 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="name" class="col-form-label">Name</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" id="name" class="form-control" name="name" value="{{ old('name')}}">
+                                    </div>
                                 </div>
-                                <label class="col-md-4 col-form-label text-md-right" for="description">Description</label>
-                                <div class="col-md-6">
-                                <input type="text" id="description" class="form-control @error('description') is-invalid @enderror" name="description" value={{'description' }}>
+
+                                <div class="col-md-6 g-3 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="description" class="col-form-label">Description</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" id="description" class="form-control" name="description" value="{{ old('description')}}">
+                                    </div>
                                 </div>
-                            </div>
-                        
-
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Submit
-                                    </button>
+                              
+                                <div class="col-md-6 g-3 align-items-center ml-3">
+                                        <button type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
                                 </div>
                             </div>
                         </form>
