@@ -29,15 +29,15 @@ class PermissionController extends Controller
         $permissions->description = request('description');
         $permissions->permission_id = request('permission_id');
         //dd($permissions);
-        return view('permissions.create', ['permissions'=> $permissions]);
+        return view('permissions.create');
     }
 
     public function store(Request $request)
     {
        
         $request->validate([
-            'name'=> 'required|unique:permissions|max:255',
-            'description'=> 'required',
+            'name' => 'required|unique:permissions|max:255',
+            'description' => 'required',
         ]); 
         
         $permission = new Permission();
