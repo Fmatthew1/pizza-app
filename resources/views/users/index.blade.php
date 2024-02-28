@@ -27,7 +27,7 @@
                     {{ $user->email }}
                 </td>
                 <td>
-                    <label> {{ $user->role->name }} </label>
+                    <label> {{ $user->role->name??null }} </label>
                 </td>
                 <td>
                     <button type="button" class="btn btn-info">
