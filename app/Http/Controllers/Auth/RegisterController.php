@@ -8,9 +8,12 @@ use App\User;
 use App\Role;
 use App\Permission;
 use App\Product;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\RedirectResponse\Routing\Redirector;
 
 class RegisterController extends Controller
 {
@@ -67,17 +70,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // $role = Role::where('name', 'user')->with('permissions')->first();
+        $role = Role::where('name', 'user')->with('permissions')->first();
     
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
 
-        // $user->role()->associate($role);
-        // $user->save();
+           //  $user->role()->associate($role);
+    //         // $user->save();
+     }
 
+//     public function create(Request $request, string $id)
+//    {
+//       $users = new User();
+//       $users->name = request('name');
+//       $users->email = request('email');
+//       $users->password = request('password');
+//       $users->password = Hash::make($request->password);
+//       $users->role_id = request('role_id');
+//       $roles = Role::all();
+      
+//       return redirect('/users');
     
-    }
+//    }
 }
