@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-//    public function __construct(){
-//       $this->middleware('auth');
-//   }
+   public function __construct(){
+      $this->middleware('auth');
+  }
    public function index()
    {
       $users = User::all();
@@ -23,14 +23,9 @@ class UserController extends Controller
 
    public function create()
    {
-      $users = new User();
-      $users->name = request('name');
-      $users->email = request('email');
-      $users->password = request('password');
-      $users->role_id = request('role_id');
       $roles = Role::all();
       
-      return view('users.create', ['users' => $users, 'roles'=> $roles]);
+      return view('users.create', ['roles'=> $roles]);
    }
 
    public function show($id) {
