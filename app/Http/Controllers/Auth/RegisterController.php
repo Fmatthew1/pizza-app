@@ -70,29 +70,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $role = Role::where('name', 'user')->with('permissions')->first();
-    
+        $superAdminRole = Role::where('name', 'Super Admin')->with('permissions')->first();  
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+            'role_id' =>   $superAdminRole->id,
+            
 
-           //  $user->role()->associate($role);
-    //         // $user->save();
+        ]);
      }
 
-//     public function create(Request $request, string $id)
-//    {
-//       $users = new User();
-//       $users->name = request('name');
-//       $users->email = request('email');
-//       $users->password = request('password');
-//       $users->password = Hash::make($request->password);
-//       $users->role_id = request('role_id');
-//       $roles = Role::all();
-      
-//       return redirect('/users');
-    
-//    }
+
 }
