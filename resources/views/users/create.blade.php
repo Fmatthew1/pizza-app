@@ -55,14 +55,15 @@
 
                     <label for="roles" class="col-md-4 col-form-label text-md-end text-start">Roles</label>
                     <h4>Select role</h4>
-                    <select id='role_id' name="role_id" required>
+                    <select id='role_id' name="role_id">
+                        <option value=""></option>
                         @foreach($roles as $role)
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                         @endforeach
                     </select>
                     
                     <div class="mb-3 row">
-                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Create User">
+                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value=" User">
                     </div>
                     
                 </form>
