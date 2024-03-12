@@ -2,9 +2,9 @@
 
 @section('content')
     <h1>List of Permissions</h1>
-    <button type="button" class="btn btn-outline-success">
+    {{-- <button type="button" class="btn btn-outline-success">
         <a href="/permissions/create">Create New Permission</a>
-    </button>
+    </button> --}}
     <table class="table">
         <thead>
             <tr>
@@ -28,9 +28,9 @@
                         <button type="button" class="btn btn-info">
                             <a href="/permissions/{{ $permission->id }}">View</a>
                         </button>
-                        <button type="button" class="btn btn-warning">
+                        {{-- <button type="button" class="btn btn-warning">
                             <a href="/permissions/{{ $permission->id}}/edit">Update</a>
-                        </button>
+                        </button> --}}
                     </td>
                 </tr>
             @endforeach
