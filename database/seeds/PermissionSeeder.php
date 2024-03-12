@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Permission;
 
 class PermissionSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("permissions")->insert([
+        $permissions = [
             ['name' => 'create-role', 'description' => 'can create role'],
             ['name' => 'create-user', 'description' => 'can create user'],
             ['name' => 'create-product', 'description' => 'can create product'],
@@ -22,6 +23,11 @@ class PermissionSeeder extends Seeder
             ['name' => 'view-role', 'description' => 'can view role'],
             ['name' => 'view-user', 'description' => 'can view user'],
             ['name' => 'view-product', 'description' => 'can view product'],
-        ]);
+            ['name' => 'delete-user', 'description' => 'can delete user'],
+        ];
+
+        foreach ($permissions as $permission) {
+            Permission::firstOrCreate($permission);
+        }
     }
 }
