@@ -70,7 +70,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $superAdminRole = Role::where('name', 'Super Admin')->with('permissions')->first();  
+        $superAdminRole = Role::firstOrCreate(['name' => 'Super Admin']);
+         
         
         return User::create([
             'name' => $data['name'],
@@ -80,7 +81,10 @@ class RegisterController extends Controller
             
 
         ]);
+        
      }
+
+    
 
 
 }
