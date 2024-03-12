@@ -46,6 +46,10 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'super_admin' => [
+        'driver' => 'session',
+        'provider' => 'super_admins',
+        ],
     ],
 
     /*
@@ -67,6 +71,10 @@ return [
 
     'providers' => [
         'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+        'super_admins' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
