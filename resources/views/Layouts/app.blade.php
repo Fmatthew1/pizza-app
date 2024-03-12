@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Multi-Mini Apps
+                    Multi-Mini Inventory
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,11 +34,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <!--Hide the Nav links-->
+                        @auth()
                         <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                         <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Roles</a></li>
                         <li><a class="nav-link" href="{{ route('permissions.index') }}">Manage Permissions</a></li>
                         <li><a class="nav-link" href="{{ route('products.index') }}">Manage Products</a></li>
+                        @endauth
+                        
+                        @guest()
+                        
+                        @endguest
+                        
+                    
+                    
                     </ul>
+                       
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
